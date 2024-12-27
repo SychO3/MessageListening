@@ -22,7 +22,8 @@ active_clients: Dict[str, Client] = {}
 # 定时任务调度器
 scheduler = AsyncIOScheduler(
     jobstores={'default': MemoryJobStore()},
-    job_defaults={'misfire_grace_time': 30}
+    job_defaults={'misfire_grace_time': 30},
+    timezone='Asia/Shanghai'
 )
 
 async def start_client(phone: str, name: str = None) -> bool:

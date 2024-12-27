@@ -3,7 +3,7 @@ import os
 from pyrogram import Client, filters, types, helpers, errors, enums
 import logging
 from config import (
-    API_ID, API_HASH, BOT_TOKEN,
+    API_ID, API_HASH, BOT_TOKEN,ADMIN_IDS,
     SESSIONS_FILE, KEYWORDS_FILE, load_json, save_json
 )
 from db import block_user
@@ -34,6 +34,9 @@ async def start_markup():
 
 @Client.on_message(filters.command("start")&filters.private)
 async def start(client:Client,message:types.Message):
+    if message.from_user.id not in ADMIN_IDS:
+        return
+
     text = await start_text()
     markup = await start_markup()
     await message.reply_text(text,reply_markup=markup,quote=False)
