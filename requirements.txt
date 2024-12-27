@@ -1,0 +1,4 @@
+pyrofork
+TgCrypto-pyrofork
+python-dotenv
+apscheduler
