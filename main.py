@@ -12,6 +12,10 @@ from config import (
 )
 from bot.push import push_task, PUSH_INTERVAL
 
+
+import os
+os.environ['TZ'] = 'Asia/Shanghai'
+
 # 配置日志
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
